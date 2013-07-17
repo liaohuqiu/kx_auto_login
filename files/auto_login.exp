@@ -3,9 +3,14 @@ set host [lindex $argv 0]
 set user [lindex $argv 1]
 set password [lindex $argv 2]
 set prePASSCODE [lindex $argv 3]
+set save_RSA_key [lindex $argv 4]
 set timeout -1
 spawn ssh $user@$host
 match_max 100000
+if {"$save_RSA_key" == "yes"} {
+    expect "*continue connecting*"
+    send -- "yes\n"
+}
 expect "*Password:*"
 send -- "$password\n"
 expect "Enter PASSCODE:"
