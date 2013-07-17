@@ -1,9 +1,8 @@
 kx_auto_login
 =============
 
-auto input password and pre-passcode for login in,  and keep login session for next login
+Auto input password and pre-passcode for login in, and keep login session for next login.
 
+Use intall.sh to install.
 
-use intall.sh to install auto login function.
-
-If your have never login to dester ip, use: ssh ip to add host key first;
+If your have never login in to the ip, use "ssh ip" to add host key first.

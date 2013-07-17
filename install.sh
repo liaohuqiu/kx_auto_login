@@ -3,7 +3,7 @@
 if [ ! $# -eq 5 ]; then
     echo "Usage: sh $0 commond ip user_name password pre-PASSCODE"
     echo "exsample: sh $0 to_168 192.168.0.168 huqiu rzxlszyysppgqc yqqlmgs1cl"
-    echo ''
+    exit;
 fi
 if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
@@ -21,11 +21,11 @@ pre_passcode=$5
 cat > "$commond.sh" <<EOF
 #!/bin/bash
 host="$ip"
-user="huqiu"
+user_name="$user_name"
 password="$password"
 prePASSCODE="$pre_passcode"
-cd files
-./auto_login.sh \$host \$user \$password \$prePASSCODE
+cd $dir/files
+./auto_login.sh \$host \$user_name \$password \$prePASSCODE
 EOF
 chmod u+x $commond.sh
 
